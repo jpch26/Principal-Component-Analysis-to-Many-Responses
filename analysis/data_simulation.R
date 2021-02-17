@@ -2,10 +2,10 @@
 # Simulating Data ---------------------------------------------------------
 
 # Packages
-library(tidyverse)
+if (!"tidyverse" %in% .packages()) library(tidyverse)
 
 # 1 Import Data -----------------------------------------------------------
-cp_data <- read_csv("data/cp_data.csv")
+cp_data <- read_csv("data/complete_data.csv")
 
 # 2 Simluate triplicates -------------------------------------------------
 set.seed(5) # For reproducibility

@@ -20,22 +20,27 @@ qt_data <- t(main_data_wd[, -1])
 # 3 PCA analysis ----------------------------------------------------------
 qt_pca <- prcomp(qt_data, scale. = FALSE)
 
-# 3.1 PCA data
+# 3.1 PCA summary
+pca_summary <- summary(qt_pca)
+
+# 3.2 PCA data
 pca_data <- as_tibble(qt_pca$x) %>% 
   mutate(TIME = as_factor(substr(rownames(qt_pca$x), start = 3, stop =5))) %>% 
   relocate(TIME)
 
-# 3.2 Loadings
+# 3.3 Loadings Data
+
+# Compound names
 compound_names <- filter(main_data, SAMPLE == 1, TIME == 0.5) %>% 
   select(MET) %>% 
-  unlist()          # Compound names
+  unlist()          
 
 loadigns_data <- as_tibble(qt_pca$rotation) %>% 
   signif(3) %>% 
-  mutate(MET = compound_names) %>% 
-  relocate(MET) 
+  mutate(MET = compound_names, INDEX = 1:length(MET)) %>% 
+  relocate(MET, INDEX) 
 
-# 3.3 Variation percentage per PC
+# 3.4 Variation percentage per PC
 var_pca <- qt_pca$sdev^2
 per_var_pca <- round((var_pca / sum(var_pca))*100, 2)
 per_var_pca <- tibble(
@@ -43,41 +48,8 @@ per_var_pca <- tibble(
   PER_VAR = per_var_pca
 )
 
-# 2.4 Save results
+# 3.5 Save results
+capture.output(pca_summary, file = "data/pca_summary.txt")
 write_csv(pca_data, "data/pca_data.csv")
 write_csv(loadigns_data, "data/loadings_data.csv")
 write_csv(per_var_pca, "data/per_var_pca.csv")
-
-# 3 Plots ------------------------------------------------------------------
-
-# 3.1 Scree Plot
-bar_pca <- per_var_pca %>% 
-  ggplot(aes(x = as.factor(PC), y = PER_VAR)) +
-  geom_col() + 
-  xlab("PC") +
-  ylab("% of total variance") +
-  theme_classic() +
-  theme(
-    axis.text.x = element_text(color = "black", size = 13),
-    axis.text.y = element_text(color = "black", size = 13),
-    axis.title = element_text(color = "black", size = 15)
-  ) 
-
-# 3.2 Score plot PC1 vs PC2
-pca_plot <- pca_data %>% 
-  ggplot(aes(x = PC1, y = PC2, color = TIME)) +
-  geom_point(size = 3) +
-  xlab(paste0("PC1-", per_var_pca$PER_VAR[1], "%")) +
-  ylab(paste0("PC2-", per_var_pca$PER_VAR[2], "%")) +
-  theme_classic() +
-  theme(
-    axis.text.x = element_text(color = "black", size = 13),
-    axis.text.y = element_text(color = "black", size = 13),
-    axis.title = element_text(color = "black", size = 15)
-  ) +
-  scale_color_brewer(palette = "Dark2")
-
-
-# 3.3 Save plots
-ggsave("graphs/scree_plot.jpeg", plot = bar_pca)
-ggsave("graphs/pca_plot.jpeg", plot = pca_plot)
