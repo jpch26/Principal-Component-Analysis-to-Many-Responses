@@ -1,0 +1,39 @@
+R version 4.0.3 (2020-10-10)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19041)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=Spanish_Mexico.1252 
+[2] LC_CTYPE=Spanish_Mexico.1252   
+[3] LC_MONETARY=Spanish_Mexico.1252
+[4] LC_NUMERIC=C                   
+[5] LC_TIME=Spanish_Mexico.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets 
+[6] methods   base     
+
+other attached packages:
+[1] forcats_0.5.0   stringr_1.4.0   dplyr_1.0.2    
+[4] purrr_0.3.4     readr_1.4.0     tidyr_1.1.2    
+[7] tibble_3.0.4    ggplot2_3.3.2   tidyverse_1.3.0
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.5         RColorBrewer_1.1-2 pillar_1.4.7      
+ [4] compiler_4.0.3     cellranger_1.1.0   dbplyr_2.0.0      
+ [7] tools_4.0.3        digest_0.6.27      jsonlite_1.7.2    
+[10] lubridate_1.7.9.2  lifecycle_0.2.0    gtable_0.3.0      
+[13] pkgconfig_2.0.3    rlang_0.4.7        reprex_0.3.0      
+[16] cli_2.2.0          DBI_1.1.0          rstudioapi_0.13   
+[19] haven_2.3.1        withr_2.3.0        xml2_1.3.2        
+[22] httr_1.4.2         fs_1.5.0           generics_0.1.0    
+[25] vctrs_0.3.6        hms_0.5.3          grid_4.0.3        
+[28] tidyselect_1.1.0   glue_1.4.2         R6_2.5.0          
+[31] fansi_0.4.1        readxl_1.3.1       farver_2.0.3      
+[34] modelr_0.1.8       magrittr_2.0.1     backports_1.2.1   
+[37] scales_1.1.1       ellipsis_0.3.1     rvest_0.3.6       
+[40] assertthat_0.2.1   colorspace_2.0-0   labeling_0.4.2    
+[43] stringi_1.5.3      munsell_0.5.0      broom_0.7.3       
+[46] crayon_1.3.4      
