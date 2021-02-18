@@ -3,7 +3,7 @@
 # Packages 
 if (!"tidyverse" %in% .packages()) library(tidyverse)
 
-# Set globla theme
+# Set global theme
 source("analysis/global_theme.R")
 
 # 1 Import data --------------------------------------------------------------
@@ -19,7 +19,7 @@ bar_pca <- per_var_pca[1:6,] %>%
   ylab("% of total variance") 
   
 
-# 3 Score plot PC1 vs PC2 ----------------------------------------------------
+# 3 Score plot PC1 and PC2 ----------------------------------------------------
 pca_plot <- pca_data %>% 
   mutate(TIME = as_factor(TIME)) %>% 
   ggplot(aes(x = PC1, y = PC2, color = TIME)) +

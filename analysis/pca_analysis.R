@@ -48,7 +48,7 @@ per_var_pca <- tibble(
   PER_VAR = per_var_pca
 )
 
-# 3.5 Save results
+# 4 Save results ----------------------------------------------------------
 capture.output(pca_summary, file = "data/pca_summary.txt")
 write_csv(pca_data, "data/pca_data.csv")
 write_csv(loadigns_data, "data/loadings_data.csv")
