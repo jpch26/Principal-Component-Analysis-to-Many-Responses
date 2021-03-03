@@ -10,7 +10,7 @@ If you have cloned this repository and want to run this analysis from
 scratch first run erase\_all\_outputs.R script and then run Main.R
 script o whichever script you want.
 
-You can read the presentation for this folder by clicking on: <a href="https://r-inthelab.netlify.app/2021/02/18/principal-component-analysis-to-many-responses/#loadings-line-plot" target="_blank">Principal Component Analysis to Many Responses</a>.
+You can read the presentation for this folder by clicking on: <a href="https://r-inthelab.net/2021/02/18/principal-component-analysis-to-many-responses/" target="_blank">Principal Component Analysis to Many Responses</a>.
 
 Juan Pablo Carreón Hidalgo
 
